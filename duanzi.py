@@ -18,10 +18,8 @@ def save_joke(res_url):
 		if n[m]>50:
 			with open('joke.txt','a+',encoding='utf-8') as t:
 				for str in joke.find_all('p'):
-					if str.string!=None:
-						t.write(str.string)
-					else:
-						t.write(str.find('br').string)
+					t.write('%d.'%index+str.get_text())
+					
 				print('抓取第%s符合要求的段子'%index)
 				index+=1
 				t.write('\n\n')
@@ -30,6 +28,6 @@ def save_joke(res_url):
 #抓取煎蛋段子板块，根据range抓取前n页
 if __name__=='__main__':
 	url='http://jandan.net/duan'
-	for i in range(0,1):
+	for i in range(0,20):
 		save_joke(url)
 		url = BeautifulSoup(requests.get(url).text,'html.parser').find('a', {'class': 'previous-comment-page'}).get('href')
