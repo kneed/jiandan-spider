@@ -16,7 +16,7 @@ def save_jpg(res_url):
     html = BeautifulSoup(requests.get(res_url).text, 'html.parser')
 #判断需要oo大于多少的数
     for oo in html.find_all('div',class_='jandan-vote'):
-        oo_num.append(int(oo.find('span').string))
+        oo_num.append(int(oo.find('span',{'class':'tucao-like-container'}).find('span').string))
     print(oo_num)
     for link in html.find_all('a', {'class': 'view_img_link'}):
         if oo_num[n]>150:
