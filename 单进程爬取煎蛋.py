@@ -1,6 +1,6 @@
 #author __keal__
 #coding: utf-8
-
+#单进程爬取
 import requests
 from bs4 import BeautifulSoup
 
