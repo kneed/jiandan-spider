@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# author: 禾斗
+# author: keal
 import requests
 from bs4 import BeautifulSoup
 import base64
